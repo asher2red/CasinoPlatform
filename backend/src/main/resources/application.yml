@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: casino-platform
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/casino_platform
+    username: casino_admin
+    password: casino_dev_password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.casino.platform: DEBUG
+    org.springframework.security: DEBUG
