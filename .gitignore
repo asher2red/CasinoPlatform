@@ -1,0 +1,151 @@
+# ============================================================================
+# Casino Platform - Git Ignore
+# ============================================================================
+
+# ============================================================================
+# Backend (Spring Boot / Java)
+# ============================================================================
+
+# Gradle
+backend/.gradle/
+backend/build/
+backend/gradle/
+backend/gradlew
+backend/gradlew.bat
+backend/!gradle/wrapper/gradle-wrapper.jar
+backend/.gradle-wrapper.properties
+
+# IntelliJ IDEA
+backend/.idea/
+backend/*.iml
+backend/*.iws
+backend/out/
+
+# Eclipse
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/bin/
+
+# VS Code
+backend/.vscode/
+
+# Spring Boot
+backend/target/
+
+# Logs
+backend/*.log
+backend/logs/
+
+# OS
+backend/.DS_Store
+backend/Thumbs.db
+
+# ============================================================================
+# Frontend (Next.js / React)
+# ============================================================================
+
+# Dependencies
+frontend/node_modules/
+frontend/.pnp
+frontend/.pnp.js
+
+# Testing
+frontend/coverage/
+
+# Next.js
+frontend/.next/
+frontend/out/
+
+# Production
+frontend/build/
+frontend/dist/
+
+# Misc
+frontend/.DS_Store
+frontend/*.pem
+
+# Debug
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# Local env files
+frontend/.env*.local
+frontend/.env
+
+# Vercel
+frontend/.vercel
+
+# Turbo
+frontend/.turbo
+
+# ============================================================================
+# Infrastructure
+# ============================================================================
+
+# Docker
+infra/data/
+infra/logs/
+
+# ============================================================================
+# Global
+# ============================================================================
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+backend-run.log
+frontend-run.log
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Backup files
+*.bak
+*.backup
+
+# ============================================================================
+# Sensitive Data (IMPORTANT)
+# ============================================================================
+
+# Never commit these!
+**/application-prod.yml
+**/application-production.yml
+**/*-secret*.yml
+**/*-secret*.properties
+**/secrets/
+**/credentials.json
+**/keystore.jks
+*.p12
+*.pfx
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# ============================================================================
+# Generated Documentation (Optional - 프로젝트 정책에 따라)
+# ============================================================================
+
+# 생성된 문서는 일반적으로 커밋하지만, 빌드 산출물이면 제외
+# docs/generated/
