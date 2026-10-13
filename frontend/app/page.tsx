@@ -1,68 +1,166 @@
+"use client";
+
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-zinc-50 dark:bg-zinc-900 p-8">
-      <main className="max-w-2xl w-full space-y-8">
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold text-zinc-900 dark:text-zinc-50">
-            Casino Platform
-          </h1>
-          <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            Welcome to the Casino Platform Prototype
-          </p>
-        </div>
-
-        <div className="bg-white dark:bg-zinc-800 rounded-lg shadow-lg p-8 space-y-6">
+    <div
+      className="min-h-screen flex flex-col"
+      style={{ backgroundColor: "var(--bg-base)" }}
+    >
+      {/* Hero Section */}
+      <section className="flex-1 flex flex-col items-center justify-center px-4 py-16 sm:py-24">
+        <div className="max-w-4xl w-full text-center space-y-8">
+          {/* Logo & Title */}
           <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
-              Get Started
-            </h2>
-            <p className="text-zinc-600 dark:text-zinc-400">
-              Create an account or sign in to access the platform.
+            <div className="flex justify-center">
+              <div
+                className="text-6xl sm:text-7xl animate-bounce"
+                style={{ color: "var(--color-primary)" }}
+              >
+                🎰
+              </div>
+            </div>
+            <h1
+              className="text-4xl sm:text-5xl md:text-6xl font-bold"
+              style={{ color: "var(--text-primary)" }}
+            >
+              Casino Platform
+            </h1>
+            <p
+              className="text-lg sm:text-xl"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              Experience premium gaming entertainment
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Link
               href="/register"
-              className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+              className="w-full sm:w-auto px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+              style={{
+                backgroundColor: "var(--button-primary-bg)",
+                color: "var(--button-primary-text)",
+                transition: "var(--transition-base)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor =
+                  "var(--button-primary-bg-hover)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor =
+                  "var(--button-primary-bg)";
+              }}
             >
-              Sign Up
+              Get Started
             </Link>
             <Link
               href="/login"
-              className="flex items-center justify-center bg-zinc-600 hover:bg-zinc-700 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+              className="w-full sm:w-auto px-8 py-4 rounded-lg font-semibold text-lg transition-all"
+              style={{
+                backgroundColor: "var(--button-secondary-bg)",
+                color: "var(--button-secondary-text)",
+                border: "1px solid var(--button-secondary-border)",
+                transition: "var(--transition-base)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor =
+                  "var(--button-secondary-bg-hover)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor =
+                  "var(--button-secondary-bg)";
+              }}
             >
               Sign In
             </Link>
           </div>
-        </div>
 
-        <div className="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-6 space-y-3">
-          <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
-            Features
-          </h3>
-          <ul className="space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
-            <li className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span>✓ User registration and authentication</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span>✓ Virtual wallet with transaction history</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span>✓ Game lobby with category filters</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span>✓ Demo slot game with 25 paylines</span>
-            </li>
-          </ul>
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-12 max-w-3xl mx-auto">
+            {[
+              {
+                icon: "🔐",
+                title: "Secure Authentication",
+                description: "Protected accounts with encrypted credentials",
+              },
+              {
+                icon: "💰",
+                title: "Virtual Wallet",
+                description: "Track your balance and transaction history",
+              },
+              {
+                icon: "🎮",
+                title: "Game Lobby",
+                description: "Browse games by category and provider",
+              },
+              {
+                icon: "🎯",
+                title: "Demo Games",
+                description: "Play with virtual money, no risk",
+              },
+            ].map((feature, index) => (
+              <div
+                key={index}
+                className="p-6 rounded-lg transition-all hover:shadow-lg"
+                style={{
+                  backgroundColor: "var(--card-bg)",
+                  border: "1px solid var(--card-border)",
+                  transition: "var(--transition-base)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "var(--card-bg-hover)";
+                  e.currentTarget.style.boxShadow = "var(--shadow-lg)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "var(--card-bg)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                <div className="text-4xl mb-3">{feature.icon}</div>
+                <h3
+                  className="text-lg font-semibold mb-2"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  {feature.title}
+                </h3>
+                <p
+                  className="text-sm"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Disclaimer */}
+          <div
+            className="mt-8 p-4 rounded-lg text-xs"
+            style={{
+              backgroundColor: "var(--bg-elevated)",
+              color: "var(--text-tertiary)",
+              border: "1px solid var(--border-subtle)",
+            }}
+          >
+            This is a prototype platform using virtual currency only. No real
+            money transactions.
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Footer */}
+      <footer
+        className="py-6 text-center text-sm"
+        style={{
+          color: "var(--text-tertiary)",
+          borderTop: "1px solid var(--border-subtle)",
+        }}
+      >
+        <p>Casino Platform Prototype © 2026</p>
+      </footer>
     </div>
   );
 }
